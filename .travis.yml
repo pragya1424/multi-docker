@@ -5,20 +5,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t vishalcool401/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t vishalcool1401/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true vishalcool401/react-test npm test
+  - docker run -e CI=true vishalcool1401/react-test npm test
 
 after_success:
-  - docker build -t vishalcool401/multi-client ./client
-  - docker build -t vishalcool401/multi-nginx ./nginx
-  - docker build -t vishalcool401/multi-server ./server
-  - docker build -t vishalcool401/multi-worker ./worker
+  - docker build -t vishalcool1401/multi-client ./client
+  - docker build -t vishalcool1401/multi-nginx ./nginx
+  - docker build -t vishalcool1401/multi-server ./server
+  - docker build -t vishalcool1401/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push vishalcool401/multi-client
-  - docker push vishalcool401/multi-nginx
-  - docker push vishalcool401/multi-server
-  - docker push vishalcool401/multi-worker
+  - docker push vishalcool1401/multi-client
+  - docker push vishalcool1401/multi-nginx
+  - docker push vishalcool1401/multi-server
+  - docker push vishalcool1401/multi-worker
